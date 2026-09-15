@@ -13,6 +13,7 @@ Foldara is a cross-platform folder synchronization application. The synchronizat
 ## Documentation index
 
 - [Product scope and roadmap](docs/product-scope.md)
+- [Prioritized task backlog](docs/tasks.md)
 - [Architecture](docs/architecture.md)
 - [Technology stack](docs/technology-stack.md)
 - [Synchronization model](docs/synchronization-model.md)
@@ -24,6 +25,7 @@ Foldara is a cross-platform folder synchronization application. The synchronizat
 
 - Write source code, identifiers, documentation, commit messages, and user-facing diagnostic messages in English.
 - Keep the synchronization domain independent of UI frameworks and provider SDKs.
+- Prefer the smallest design that satisfies a current requirement. Do not add abstractions, packages, processes, or infrastructure for hypothetical future needs.
 - Put provider-specific behavior behind storage abstractions, but expose provider capabilities instead of assuming all providers behave like a file system.
 - Separate synchronization planning from execution. Every destructive operation must be visible in a plan before execution.
 - Prefer idempotent operations, cancellation support, structured logging, and explicit error handling.

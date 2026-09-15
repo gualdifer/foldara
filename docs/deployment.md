@@ -26,7 +26,7 @@ Platform-specific scripts and packaging definitions belong under `deploy/`. Gene
 - Windows: MSIX or a signed installer appropriate for the daemon lifecycle.
 - macOS: signed and notarized application bundle and installer image/package.
 
-No packaging format is committed yet. Each choice must be validated against background-service installation, auto-update expectations, code signing, and WebView requirements.
+No packaging format is committed yet. Each choice must be validated against background-service installation, auto-update expectations, code signing, Avalonia runtime dependencies, and native desktop integration.
 
 ## Android
 

@@ -4,7 +4,7 @@
 
 - .NET 10 SDK.
 - Git.
-- Platform tooling required by the desktop shell or packaging target once selected.
+- Platform tooling required by Avalonia or the selected packaging target.
 
 ## Common commands
 
