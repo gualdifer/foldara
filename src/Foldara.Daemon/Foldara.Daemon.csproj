@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="../Foldara.Engine/Foldara.Engine.csproj" />
+    <ProjectReference Include="../Foldara.Storage.Local/Foldara.Storage.Local.csproj" />
+    <ProjectReference Include="../Foldara.Storage.GoogleDrive/Foldara.Storage.GoogleDrive.csproj" />
+  </ItemGroup>
+</Project>
