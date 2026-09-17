@@ -18,6 +18,10 @@ If loopback HTTP is used, the daemon should bind only to loopback, select or sec
 
 Path normalization must prevent traversal outside configured roots. Writes should use temporary files and atomic replacement when available. Destructive plans require explicit policy and should integrate provider trash or retention features where possible.
 
+## Synchronization diagnostics
+
+Technical synchronization logs contain correlation identifiers, operation kinds, outcomes, durations, and provider-neutral error codes. They must not contain configured root paths, entry paths, plan reasons, file contents, raw provider messages, exception objects, credentials, or tokens. User-visible operation results use fixed sanitized messages rather than provider exception text.
+
 ## Client-side encryption
 
 Encryption is a separate product feature, not an incidental transfer option. It requires a documented key-management, recovery, naming, metadata, deduplication, and compatibility design before implementation.

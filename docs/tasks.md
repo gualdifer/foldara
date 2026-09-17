@@ -28,25 +28,25 @@ Update the status and notes whenever a task materially changes. Split a task whe
 | ID | Task | Status | Depends on | Completion criteria |
 | --- | --- | --- | --- | --- |
 | FND-001 | Define normalized storage paths and path validation rules. | Done | — | Paths reject traversal, distinguish roots from relative paths, and have unit tests for Windows, Linux, and macOS cases. |
-| FND-002 | Define storage entries and metadata types. | Not started | FND-001 | Files, folders, timestamps, sizes, identifiers, hashes, revisions, and provider-specific metadata are represented without provider SDK types. |
-| FND-003 | Define provider contracts and capability discovery. | Not started | FND-001, FND-002 | Contracts support enumeration and streaming operations, expose capabilities, accept cancellation, and document error semantics. |
-| FND-004 | Define immutable synchronization plan and operation types. | Not started | FND-001, FND-002 | Copy, create-directory, replace, move, skip, conflict, and delete candidates can be represented and serialized for diagnostics. |
+| FND-002 | Define storage entries and metadata types. | Done | FND-001 | Files, folders, timestamps, sizes, identifiers, hashes, revisions, and provider-specific metadata are represented without provider SDK types. |
+| FND-003 | Define provider contracts and capability discovery. | Done | FND-001, FND-002 | Contracts support enumeration and streaming operations, expose capabilities, accept cancellation, and document error semantics. |
+| FND-004 | Define immutable synchronization plan and operation types. | Done | FND-001, FND-002 | Copy, create-directory, replace, move, skip, conflict, and delete candidates can be represented and serialized for diagnostics. |
 | FND-005 | Establish shared build configuration. | Done | — | `global.json`, `Directory.Build.props`, and `Directory.Packages.props` define SDK policy, nullable analysis, warnings policy, deterministic builds, and common package versions. |
-| FND-006 | Establish automated test conventions and reusable fixtures. | Not started | FND-001–FND-004 | Tests can create isolated directory trees and compare plans deterministically without using real cloud accounts. |
+| FND-006 | Establish automated test conventions and reusable fixtures. | Done | FND-001–FND-004 | Tests can create isolated directory trees and compare plans deterministically without using real cloud accounts. |
 | FND-007 | Add CI for build and tests. | Not started | FND-005, FND-006 | Pull requests build and test on Linux, Windows, and macOS using the supported .NET SDK. |
 
 ## P1 — Local-to-Local MVP
 
 | ID | Task | Status | Depends on | Completion criteria |
 | --- | --- | --- | --- | --- |
-| LOC-001 | Implement the local file-system provider. | Not started | FND-003 | Provider enumerates directories and reads/writes streams safely, exposes platform capabilities, and passes integration tests. |
-| LOC-002 | Implement deterministic source and destination scanning. | Not started | LOC-001 | Scans produce normalized snapshots, support cancellation, and handle inaccessible or changing files predictably. |
-| LOC-003 | Implement one-way comparison and planning. | Not started | FND-004, LOC-002 | New, unchanged, and modified files produce deterministic plans with no automatic deletions. |
-| LOC-004 | Implement dry-run output. | Not started | LOC-003 | A plan can be inspected without mutating either side and includes reasons for every operation or skip. |
-| LOC-005 | Implement safe plan execution. | Not started | LOC-003 | Transfers use temporary files and atomic replacement where available; execution is cancellation-aware and safely repeatable. |
-| LOC-006 | Detect files modified during transfer. | Not started | LOC-005 | The executor detects inconsistent source reads and reports a retryable result instead of committing corrupt state. |
-| LOC-007 | Add structured logging and operation results. | Not started | LOC-003, LOC-005 | Each run and operation has correlation identifiers, duration, outcome, and sanitized error details. |
-| LOC-008 | Add end-to-end local synchronization tests. | Not started | LOC-001–LOC-007 | Tests cover nested folders, empty files, updates, cancellation, partial failure, name differences, and rerunning a completed plan. |
+| LOC-001 | Implement the local file-system provider. | Done | FND-003 | Provider enumerates directories and reads/writes streams safely, exposes platform capabilities, and passes integration tests. |
+| LOC-002 | Implement deterministic source and destination scanning. | Done | LOC-001 | Scans produce normalized snapshots, support cancellation, and handle inaccessible or changing files predictably. |
+| LOC-003 | Implement one-way comparison and planning. | Done | FND-004, LOC-002 | New, unchanged, and modified files produce deterministic plans with no automatic deletions. |
+| LOC-004 | Implement dry-run output. | Done | LOC-003 | A plan can be inspected without mutating either side and includes reasons for every operation or skip. |
+| LOC-005 | Implement safe plan execution. | Done | LOC-003 | Transfers use temporary files and atomic replacement where available; execution is cancellation-aware and safely repeatable. |
+| LOC-006 | Detect files modified during transfer. | Done | LOC-005 | The executor detects inconsistent source reads and reports a retryable result instead of committing corrupt state. |
+| LOC-007 | Add structured logging and operation results. | Done | LOC-003, LOC-005 | Each run and operation has correlation identifiers, duration, outcome, and sanitized error details. |
+| LOC-008 | Add end-to-end local synchronization tests. | Done | LOC-001–LOC-007 | Tests cover nested folders, empty files, updates, cancellation, partial failure, name differences, and rerunning a completed plan. |
 
 ## P2 — State, Scheduling, and Google Drive
 

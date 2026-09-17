@@ -9,5 +9,7 @@
     <PackageReference Include="xunit.v3" />
     <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
     <ProjectReference Include="../../src/Foldara.Engine/Foldara.Engine.csproj" />
+    <ProjectReference Include="../../src/Foldara.Storage.Local/Foldara.Storage.Local.csproj" />
+    <ProjectReference Include="../Foldara.Testing/Foldara.Testing.csproj" />
   </ItemGroup>
 </Project>

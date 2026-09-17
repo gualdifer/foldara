@@ -19,11 +19,19 @@ dotnet test Foldara.sln
 ## Repository conventions
 
 - Production projects live under `src/`.
-- Test projects live under `test/` and use a `.Tests` suffix.
+- Executable test projects live under `test/` and use a `.Tests` suffix. Shared test infrastructure lives in `Foldara.Testing`.
 - Project names use the `Foldara.*` namespace prefix.
 - Build output and generated files are not committed.
 - Scripts must fail on errors and document required environment variables.
 - Credentials and local environment files must never be committed.
+
+## Test conventions
+
+- Use `TemporaryDirectory` from `Foldara.Testing` for file-system tests. Dispose it in the test that creates it; do not share writable directory trees between tests.
+- Build fixture paths with `StoragePath` so traversal and platform-specific separators cannot enter provider tests accidentally.
+- Compare complete synchronization plans with `SynchronizationPlanComparer.Instance`. Plan order, operation kind, source path, destination path, and reason are all significant.
+- Keep provider integration tests deterministic and local by default. Tests that require a real cloud account must be separately classified and must never run as part of the standard test command.
+- Do not place credentials, access tokens, or user file contents in test output or committed fixtures.
 
 ## Current state
 
